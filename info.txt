@@ -1,0 +1,27 @@
+
+usuario_0
+U_0informatorio
+
+usuario: admin
+password: admin123
+
+
+Cuando termines de trabajar en esta rama y quieras integrar los cambios a main, el proceso sería (en el futuro):
+
+git add .
+
+git commit -m "Descripción de los cambios en la rama"
+
+git checkout main (para volver a la rama principal)
+
+git pull origin main (para asegurarte de que tu rama main local esté actualizada con lo de GitHub)
+
+git merge feature/nueva-funcionalidad (para traer los cambios de tu rama a main)
+
+git push origin main (para subir esos cambios a GitHub)
+
+(Opcional) git branch -d feature/nueva-funcionalidad (para borrar la rama local si ya no la necesitas)
+
+(Opcional) Borrar la rama remota en GitHub.
+
+¡Con esto, tienes un flujo de trabajo de Git más robusto! Avísame si quieres empezar a trabajar en algo específico en esta nueva rama.
