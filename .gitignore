@@ -1,0 +1,60 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+
+# .gitignore en la raíz de tu proyecto (mi_nuevo_blog/)
+
+# Archivos de caché de Python
+**/__pycache__/
+*.pyc
+*.pyd
+*.pyo
+
+
+# Base de datos de SQLite
+db.sqlite3
+
+# Entorno virtual
+venv/
+venvblog/
+env/
+
+# Archivos de configuración y seguridad de Django
+*.env
+.env
+.flaskenv
+.vscode/
+local_settings.py
+
+# Archivos de media y static (solo si no quieres trackearlos, aunque MEDIA_ROOT puede que sí)
+# Depende de cómo quieras manejar las subidas de usuario.
+# Si las portadas de las películas son parte del código fuente y no subidas por usuarios
+# podrías no ignorar la carpeta 'media/'. Pero si son subidas, es mejor ignorar.
+# media/
+
+# Logs
+*.log
+celerybeat.pid
+celeryd.pid
+
+# IDEs
+.idea/
+.project
+.DS_Store
+
+# npm / yarn
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Dependencias de pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Archivos de prueba y cobertura de código
+.coverage
+.pytest_cache/
+htmlcov/
+.tox/
+
+# Otros
+*.sqlite3-journal
