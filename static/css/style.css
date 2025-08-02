@@ -1,4 +1,20 @@
 
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+    font-size: 16px;
+}
+
+.form-control:focus {
+    border-color: #4299e1; /* Color al enfocar el campo */
+    outline: none;
+    box-shadow: 0 0 5px rgba(66, 153, 225, 0.5);
+}
+
 /* Estilos básicos para este ejemplo */
 body {
     font-family: Arial, sans-serif;
