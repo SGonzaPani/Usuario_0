@@ -80,8 +80,11 @@ def lista_peliculas(request):
             'form_comentario_instance': form_para_esta_pelicula,
         })
 
+    peliculas_carrusel = Pelicula.objects.all().order_by('-fecha_lanzamiento')[:5]
+
     context = {
         'peliculas_con_datos_adicionales': peliculas_con_datos_adicionales,
+        'peliculas_carrusel': peliculas_carrusel, # Añadimos esta nueva variable al contexto
     }
     return render(request, 'blog/lista_peliculas.html', context)
 
