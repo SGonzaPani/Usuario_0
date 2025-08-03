@@ -21,7 +21,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-em@p4y(@%e-eu=n-c@%021@f^%)2rx0u0+pa=h4ks2!1&^a%%v'
+try:
+    with open(os.path.join(BASE_DIR, 'secret_key.txt')) as f:
+        SECRET_KEY = f.read().strip()
+except FileNotFoundError:
+    # Esta es una opción de respaldo si el archivo no existe (por ejemplo, en desarrollo)
+    print("WARNING: 'secret_key.txt' file not found. Using a default key.")
+# --- Lee la clave secreta desde un archivo ---
+try:
+    with open(os.path.join(BASE_DIR, 'secret_key.txt')) as f:
+        SECRET_KEY = f.read().strip()
+except FileNotFoundError:
+    # Esta es una opción de respaldo si el archivo no existe (por ejemplo, en desarrollo)
+    print("WARNING: 'secret_key.txt' file not found. Using a default key.")
+    SECRET_KEY = 'tu_clave_secreta_aqui_para_desarrollo'
+# --- Fin de la lectura de la clave secreta ---
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

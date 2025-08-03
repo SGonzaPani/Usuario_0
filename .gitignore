@@ -8,9 +8,12 @@
 *.pyd
 *.pyo
 
-
-# Base de datos de SQLite
+# Django
 db.sqlite3
+.env
+secret.py
+media/
+
 
 # Entorno virtual
 venv/
@@ -58,3 +61,7 @@ htmlcov/
 
 # Otros
 *.sqlite3-journal
+
+*info.txt
+*secret_key.txt
+#
