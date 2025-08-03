@@ -30,7 +30,7 @@ def peliculas_por_categoria(request, categoria_slug):
         'peliculas': peliculas,
     }
     
-    return render(request, 'listado_peliculas.html', context)
+    return render(request, 'blog/lista_peliculas.html', context)
 
 
 # --- Vista para la lista de películas ---
