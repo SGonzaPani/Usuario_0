@@ -37,7 +37,11 @@ class Pelicula(models.Model):
     # Campos de timestamp para saber cuándo fue creada/actualizada la entrada de la película
     fecha_creacion = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de Creación")
     fecha_actualizacion = models.DateTimeField(auto_now=True, verbose_name="Última Actualización")
-
+    plataforma_url = models.URLField(
+        blank=True, 
+        null=True, 
+        verbose_name="Enlace a Plataforma"
+    )
     def __str__(self):
         return self.titulo
 
@@ -50,7 +54,7 @@ class Pelicula(models.Model):
 class Comentario(models.Model):
     pelicula = models.ForeignKey(Pelicula, on_delete=models.CASCADE, related_name='comentarios', verbose_name="Película")
     autor = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comentarios_escritos', verbose_name="Autor del Comentario")
-    texto = models.TextField(verbose_name="Comentario")
+    texto = models.TextField(max_length=500, verbose_name="Comentario") 
     fecha_creacion = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de Publicación")
     aprobado = models.BooleanField(default=True, verbose_name="Aprobado") # Para moderación
 

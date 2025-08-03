@@ -45,12 +45,13 @@ class RegistroForm(forms.ModelForm):
 class ComentarioForm(forms.ModelForm):
     class Meta:
         model = Comentario
-        fields = ['texto'] # Solo queremos que el usuario edite el texto del comentario
+        fields = ['texto']
         widgets = {
             'texto': forms.Textarea(attrs={
-                'rows': 4, # Número de filas visible
+                'class': 'form-control',
                 'placeholder': 'Escribe tu comentario aquí...',
-                'class': 'form-control' # Puedes añadir clases CSS para estilizado
+                'maxlength': '500',
+                'rows': 2,
             }),
         }
         labels = {
