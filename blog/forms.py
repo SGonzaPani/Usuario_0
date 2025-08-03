@@ -7,13 +7,14 @@ from .models import Comentario, Calificacion # Importa el modelo Comentario
 class RegistroForm(forms.ModelForm):
     # Campos adicionales para el registro de usuario
     password1 = forms.CharField(
-    label='Contraseña', 
-    widget=forms.PasswordInput(attrs={'placeholder': 'Contraseña'})
-)
+        label='Contraseña', 
+        widget=forms.PasswordInput(attrs={'placeholder': 'Contraseña'})
+    )
     password2 = forms.CharField(
-    label='Confirmar contraseña', 
-    widget=forms.PasswordInput(attrs={'placeholder': 'Repetir Contraseña'})
-)
+        label='Confirmar contraseña', 
+        widget=forms.PasswordInput(attrs={'placeholder': 'Repetir Contraseña'})
+    )
+
     class Meta:
         model = User
         fields = ['username', 'email'] # Define los campos del modelo User que se usarán en el formulario
@@ -30,14 +31,16 @@ class RegistroForm(forms.ModelForm):
     # Validación adicional para asegurar que las contraseñas coinciden
     def clean_password2(self):
         cd = self.cleaned_data
-        if cd['password'] and cd['password2'] and cd['password'] != cd['password2']:
+        # --- Cambio aquí ---
+        if cd['password1'] and cd['password2'] and cd['password1'] != cd['password2']:
             raise forms.ValidationError('Las contraseñas no coinciden.')
         return cd['password2']
 
     # Método para guardar el nuevo usuario
     def save(self, commit=True):
         user = super().save(commit=False) # Crea el objeto User pero no lo guarda aún
-        user.set_password(self.cleaned_data['password']) # Establece la contraseña de forma segura
+        # --- Cambio aquí ---
+        user.set_password(self.cleaned_data['password1']) # Establece la contraseña de forma segura
         if commit:
             user.save() # Guarda el usuario en la base de datos
         return user
