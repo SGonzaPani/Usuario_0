@@ -84,7 +84,6 @@ def lista_peliculas(request):
 
     context = {
         'peliculas_con_datos_adicionales': peliculas_con_datos_adicionales,
-        'peliculas_carrusel': peliculas_carrusel, # Añadimos esta nueva variable al contexto
     }
     return render(request, 'blog/lista_peliculas.html', context)
 
